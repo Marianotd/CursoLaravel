@@ -29,6 +29,8 @@ $controller_path = 'App\Http\Controllers';
 
     Route::get('/', $controller_path . '\pages\HomePage@index')->name('pages-home');
     Route::get('/page-2', $controller_path . '\pages\Page2@index')->name('pages-page-2');
+    Route::get('users', $controller_path. '\pages\Users@index')->name('pages-users');
+    Route::get('users/edit/{user_id}', $controller_path. '\pages\Users@index')->name('users.edit');
+    Route::get('users/destroy/{user_id}', $controller_path. '\pages\Users@index')->name('users.destroy');
 
-    
 });
