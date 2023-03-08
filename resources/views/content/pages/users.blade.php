@@ -10,6 +10,8 @@ $configData = Helper::appClasses();
 <h4>Usuarios de la aplicación</h4>
 <div class="card">
     <div class="table-responsive text-nowrap">
+        <a href="{{ route('pages-users-create') }}" class="btn btn-primary text-white">Añadir nuevo usuario</a>
+
         <table class="table">
             <thead>
                 <tr>
@@ -22,11 +24,13 @@ $configData = Helper::appClasses();
             </thead>
             <tbody class="table-border-bottom-0">
                 @foreach ($users as $user)
-                    <td>{{ $user->id }}</td>
-                    <td>{{ $user->name }}</td>
-                    <td>{{ $user->email }}</td>
-                    <td>{{ $user->created_at }}</td>
-                    <td>Editar | Borrar</td>
+                    <tr>
+                        <td>{{ $user->id }}</td>
+                        <td>{{ $user->name }}</td>
+                        <td>{{ $user->email }}</td>
+                        <td>{{ $user->created_at }}</td>
+                        <td><a href="{{ route('pages-user-show', $user->id) }}">Editar</a> | Borrar</td>
+                    </tr>
                 @endforeach
             </tbody>
         </table>
