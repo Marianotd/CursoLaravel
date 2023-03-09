@@ -30,11 +30,6 @@ $configData = Helper::appClasses();
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="basic-default-fullname">Contraseña anterior</label>
-                        <input type="password" name="old_password" class="form-control" id="basic-default-password" placeholder="Secret Password" />
-                    </div>
-
-                    <div class="mb-3">
                         <label class="form-label" for="basic-default-fullname">Nueva contraseña</label>
                         <input type="password" name="new_password" class="form-control" id="basic-default-password" placeholder="Secret Password" />
                     </div>

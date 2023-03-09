@@ -20,18 +20,28 @@ $configData = Helper::appClasses();
 
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-fullname">Nombre completo</label>
-                        <input type="text" name="name" class="form-control" id="basic-default-fullname" placeholder="John Doe" />
+                        <input type="text" name="name" class="form-control" id="basic-default-fullname" placeholder="John Doe" required/>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-fullname">Email</label>
-                        <input type="text" name="email" class="form-control" id="basic-default-email" placeholder="example@example.com" />
+                        <input type="text" name="email" class="form-control" id="basic-default-email" placeholder="example@example.com" required/>
                     </div>
 
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-fullname">Password</label>
-                        <input type="password" name="password" class="form-control" id="basic-default-password" placeholder="Secret Password" />
+                        <input type="password" name="password" class="form-control" id="basic-default-password" placeholder="Secret Password" required/>
                     </div>
+
+                    {{-- @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>   
+                    @endif --}}
 
                     <button type="submit" class="btn btn-primary">Send</button>
                 </form>

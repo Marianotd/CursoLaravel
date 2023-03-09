@@ -29,7 +29,7 @@ $configData = Helper::appClasses();
                         <td>{{ $user->name }}</td>
                         <td>{{ $user->email }}</td>
                         <td>{{ $user->created_at }}</td>
-                        <td><a href="{{ route('pages-user-show', $user->id) }}">Editar</a> | Borrar</td>
+                        <td><a href="{{ route('pages-user-show', $user->id) }}">Editar</a> | <a href="{{ route('pages-user-destroy', $user->id) }}">Borrar</a></td>
                     </tr>
                 @endforeach
             </tbody>
