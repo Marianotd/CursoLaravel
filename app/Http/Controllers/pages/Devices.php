@@ -14,8 +14,8 @@ class Devices extends Controller
   public function index()
   {
     $devices = Device::all();
-
-    return view('content.pages.devices', ['devices' => $devices]);
+    $types = Type::all();
+    return view('content.pages.devices', ['devices' => $devices, 'types' => $types]);
   }
 
   public function create()
@@ -34,7 +34,7 @@ class Devices extends Controller
     $device = new Device();
     $device->name = $request->name;
     $device->description = $request->description;
-    $device->sos_id = $request->sos_id;
+    $device->so_id = $request->so_id;
     $device->type_id = $request->type_id;
     $device->serial_number = $request->serial_number ?? null;
     $device->mac_address = $request->mac_address ?? null;
@@ -49,7 +49,6 @@ class Devices extends Controller
     $device->gpu = $request->gpu ?? null;
     $device->total_slots = $request->total_slots ?? null;
     $device->history = $request->history ?? null;
-    $device->sos_id = $request->sos_id ?? null;
 
     $device->save();
 
@@ -67,12 +66,30 @@ class Devices extends Controller
 
   public function update(Request $request)
   {
-    $so = So::find($request->device_id);
-    $so->name = $request->name;
-    $so->description = $request->description;
-    $so->version = $request->version;
+    $validator = $request->validate([
+      'name' => 'required',
+    ]);
 
-    $so->save();
+    $device = Device::find($request->device_id);
+    $device->name = $request->name;
+    $device->description = $request->description;
+    $device->so_id = $request->so_id;
+    $device->type_id = $request->type_id;
+    $device->serial_number = $request->serial_number ?? null;
+    $device->mac_address = $request->mac_address ?? null;
+    $device->ip_address = $request->ip_address ?? null;
+    $device->model = $request->model ?? null;
+    $device->manufacturer = $request->manufacturer ?? null;
+    $device->firmware = $request->firmware ?? null;
+    $device->stock = $request->stock ?? 1;
+    $device->hdd = $request->hdd ?? null;
+    $device->ram = $request->ram ?? null;
+    $device->cpu = $request->cpu ?? null;
+    $device->gpu = $request->gpu ?? null;
+    $device->total_slots = $request->total_slots ?? null;
+    $device->history = $request->history ?? null;
+
+    $device->save();
 
     return redirect()->route('pages-devices');
   }

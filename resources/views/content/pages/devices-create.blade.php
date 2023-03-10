@@ -56,13 +56,13 @@ $configData = Helper::appClasses();
                             @forelse ($sos as $so)
                                <option data-icon="bx-bx-{{ $so->icon }}" value="{{ $so->id }}">{{ $so->name }}</option> 
                             @empty
-                                <option value="">No hay tipos cargados</option>
+                                <option value="">No hay sistemas operativos cargados</option>
                             @endforelse
                         </select>
                     </div>
 
                     <div class="mb-3">
-                        <label class="form-label" for="basic-default-fullname">Nombre completo</label>
+                        <label class="form-label" for="basic-default-fullname">Nombre</label>
                         <input type="text" name="name" class="form-control" id="basic-default-fullname" required/>
                     </div>
 
@@ -72,17 +72,71 @@ $configData = Helper::appClasses();
                     </div>
 
                     <div class="mb-3">
-                        <label for="selectpickerIcons" class="form-label">Icono</label>
-                        <select class="selectpicker w-100 show-tick" id="selectpickerIcons" data-icon-base="bx" data-tick-icon="bx-check" data-style="btn-default" name="icon">
-                            <option value="bx bx-tv" data-icon="bx bx-tv">Monitor</option>
-                            <option value="bx bx-desktop" data-icon="bx bx-desktop">Ordenador</option>
-                            <option value="bx bx-printer" data-icon="bx bx-printer">Impresora</option>
-                            <option value="bx bx-mobile" data-icon="bx bx-mobile">Móvil</option>
-                            <option value="bx bx-hdd" data-icon="bx bx-hdd">Router/Switch</option>
-                        </select>
+                        <label class="form-label" for="basic-default-fullname">Número de serie</label>
+                        <input type="text" name="serial_number" class="form-control" id="basic-default-email"/>
                     </div>
 
-                    <button type="submit" class="btn btn-primary">Send</button>
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Mac</label>
+                        <input type="text" name="mac_address" class="form-control" id="basic-default-email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Dirección IP</label>
+                        <input type="text" name="ip_address" class="form-control" id="basic-default-email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Modelo</label>
+                        <input type="text" name="model" class="form-control" id="basic-default-email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Fábrica</label>
+                        <input type="text" name="manufacturer" class="form-control" id="basic-default-email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Firmware</label>
+                        <input type="text" name="firmware" class="form-control" id="basic-default-email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Stock</label>
+                        <input type="text" name="stock" class="form-control" id="basic-default-email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Disco Duro</label>
+                        <input type="text" name="hdd" class="form-control" id="basic-default-email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Memoria Ram</label>
+                        <input type="text" name="ram" class="form-control" id="basic-default-email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">CPU</label>
+                        <input type="text" name="cpu" class="form-control" id="basic-default-email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Tarjeta gráfica</label>
+                        <input type="text" name="gpu" class="form-control" id="basic-default-email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Slots totales</label>
+                        <input type="text" name="total_slots" class="form-control" id="basic-default-email"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="basic-default-fullname">Histórico</label>
+                        <textarea name="history" id="basic-default-fullname" class="form-control" cols="30" rows="3" style="resize:none;"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Enviar</button>
                 </form>
             </div>
           </div>
