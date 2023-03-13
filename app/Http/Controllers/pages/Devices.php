@@ -8,6 +8,7 @@ use App\Models\Device;
 use App\Models\So;
 use App\Models\Type;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class Devices extends Controller
 {
@@ -71,6 +72,18 @@ class Devices extends Controller
     ]);
 
     $device = Device::find($request->device_id);
+
+    if($request->hasFile('image')){
+      $file = $request->file('image');
+      $name = time() . $file->getClientOriginalName();
+      $filePath = '/public/' . $name;
+      Storage::put($filePath, file_get_contents($file));
+  
+      $url = Storage::url($filePath);
+      $array = explode('/storage//public/', $url);
+      $device->image_url = '/storage/' . $array[1];
+    }
+
     $device->name = $request->name;
     $device->description = $request->description;
     $device->so_id = $request->so_id;

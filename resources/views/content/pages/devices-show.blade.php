@@ -36,10 +36,14 @@ $configData = Helper::appClasses();
                 <h5 class="mb-0">Editando un dispositivo</h5>
             </div>
             <div class="card-body">
-                <form method="POST" action="{{ route('pages-devices-update') }}">
+                <form method="POST" action="{{ route('pages-devices-update') }}" enctype="multipart/form-data">
                     @csrf
 
                     <input type="hidden" name="device_id" value="{{ $device->id }}">
+
+                    <div class="mb-3">
+                        <img src="{{ $device->image_url }}" alt="{{ $device->image_url}}" class="col-lg-2">
+                    </div>
 
                     <div class="mb-3">
                         <label class="form-label" for="basic-default-fullname">Imagen del dispositivo</label>
