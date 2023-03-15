@@ -9,6 +9,8 @@ use App\Models\So;
 use App\Models\Type;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
+use App\Mail\UpdateDevice;
+use Illuminate\Support\Facades\Mail;
 
 class Devices extends Controller
 {
@@ -52,6 +54,9 @@ class Devices extends Controller
     $device->history = $request->history ?? null;
 
     $device->save();
+
+    // Enviar mail
+    Mail::to(['marianotorresdistefano@gmail.com', 'correaemmanuel.ec@gmail.com'])->send(new ExampleMail($device));
 
     return redirect()->route('pages-devices');
   }
@@ -103,6 +108,9 @@ class Devices extends Controller
     $device->history = $request->history ?? null;
 
     $device->save();
+
+    // Enviar mail
+    Mail::to(['marianotorresdistefano@gmail.com', 'correaemmanuel.ec@gmail.com'])->send(new UpdateDevice($device));
 
     return redirect()->route('pages-devices');
   }
