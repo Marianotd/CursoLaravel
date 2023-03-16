@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Mail\UpdateDevice;
 use Illuminate\Support\Facades\Mail;
+use App\Exports\DeviceExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class Devices extends Controller
 {
@@ -130,5 +132,9 @@ class Devices extends Controller
     $device->save();
 
     return redirect()->route('pages-devices');
+  }
+
+  public function export(){
+    return Excel::download(new DeviceExport, 'devices.xlsx');
   }
 }
