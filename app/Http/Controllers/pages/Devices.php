@@ -58,7 +58,7 @@ class Devices extends Controller
     $device->save();
 
     // Enviar mail
-    Mail::to(['marianotorresdistefano@gmail.com', 'correaemmanuel.ec@gmail.com'])->send(new ExampleMail($device));
+    Mail::to(['marianotorresdistefano@gmail.com', 'correaemmanuel.ec@gmail.com'])->send(new UpdateDevice($device));
 
     return redirect()->route('pages-devices');
   }

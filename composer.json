@@ -20,6 +20,7 @@
     "maatwebsite/excel": "^3.1",
     "nunomaduro/laravel-desktop-notifier": "^2.6",
     "psr/simple-cache": "2.0",
+    "spatie/laravel-backup": "^8.1",
     "spatie/laravel-permission": "^5.9"
   },
   "require-dev": {
