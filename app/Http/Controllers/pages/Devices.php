@@ -58,6 +58,7 @@ class Devices extends Controller
     $device->save();
 
     // Enviar mail
+    $device->state = 'CREADO';
     Mail::to(['marianotorresdistefano@gmail.com', 'correaemmanuel.ec@gmail.com'])->send(new UpdateDevice($device));
 
     return redirect()->route('pages-devices');
@@ -112,6 +113,7 @@ class Devices extends Controller
     $device->save();
 
     // Enviar mail
+    $device->state = 'ACTUALIZADO';
     Mail::to(['marianotorresdistefano@gmail.com', 'correaemmanuel.ec@gmail.com'])->send(new UpdateDevice($device));
 
     return redirect()->route('pages-devices');

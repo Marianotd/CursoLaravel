@@ -169,7 +169,7 @@ return [
             'to' => 'marianotorresdistefano@gmail.com',
 
             'from' => [
-                'address' => env('MAIL_FROM_ADDRESS', 'kirito_otaku_1996@outlook.com'),
+                'address' => env('MAIL_FROM_ADDRESS', ['kirito_otaku_1996@outlook.com', 'correaemmanuel.ec@gmail.com']),
                 'name' => env('MAIL_FROM_NAME', 'Mariano'),
             ],
         ],

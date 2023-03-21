@@ -27,6 +27,7 @@ class UpdateDevice extends Mailable
 
     public function build()
     {
-        return $this->view('mails.update');
+        return $this->view('mails.update')
+        ->subject('INVENTARIO DE EQUIPOS');
     }
 }

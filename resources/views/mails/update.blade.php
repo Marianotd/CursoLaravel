@@ -1,4 +1,4 @@
-<h1>DISPOSITIVO ON ID: {{ $device->id }} <strong>ACTUALIZADO</strong></h1>
-<p>Se ha actualizado un dispositivo</p>
-<p>Nombre del dispositivo: {{ $device->name }}</p>
+<h1><strong>{{ $device->state }}:</strong> DISPOSITIVO CON ID: {{ $device->id }}</h1>
+<p>SE HA {{ $device->state }} UN DISPOSITIVO</p>
+<p>Nombre: {{ $device->name }}</p>
 <p>Descripción: {{ $device->description }}</p>
