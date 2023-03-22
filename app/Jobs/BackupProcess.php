@@ -35,14 +35,23 @@ class BackupProcess implements ShouldQueue
         $backup = new Backup();
         $backup->status = 'Pending';
         $backup->url = 'http://localhost';
+        $backup->name = 'backup';
         $backup->save();
 
         $storagePath = storage_path().'/app/public/backups/';
-
-        $command = "mysqldump --column-statistics=0 -u root -p'root' --databases bd_cursolaravel > " . $storagePath . "backup.sql";
+        
+        $date = new \DateTime;
+        $date = $date->format('Y-m-d_H-i-s');
+        $name = 'backup_'.$date.'.sql';
+        
+        $command = "mysqldump -u root -proot --databases bd_cursolaravel > " . $storagePath . "backup_" . $date .".sql";
         exec($command, $output, $err);
 
+        sleep(10);
+
         $backup->status = 'Done';
+        $backup->name = $name;
+        $backup->url = 'http://127.0.0.1:8000/storage/backups/backup_'.$date.'.sql';
         $backup->save();
     }
 }

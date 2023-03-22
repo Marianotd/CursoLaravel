@@ -69,11 +69,6 @@ $controller_path = 'App\Http\Controllers';
     // Backups
     Route::get('backups', $controller_path. '\pages\Backups@index')->name('pages-backups');
     Route::get('/backups/create', $controller_path . '\pages\Backups@create')->name('pages-backups-create');
-    Route::post('/backups/store', $controller_path . '\pages\Backups@store')->name('pages-backups-store');
-    Route::get('/backups/show/{device_id}', $controller_path. '\pages\Backups@show')->name('pages-backups-show');
-    Route::post('/backups/update', $controller_path. '\pages\Backups@update')->name('pages-backups-update');
-    Route::get('/backups/destroy/{device_id}', $controller_path. '\pages\Backups@destroy')->name('pages-backups-destroy');
-    Route::get('/backups/switch/{device_id}', $controller_path. '\pages\Backups@switch')->name('pages-backups-switch');
-    Route::get('backups/export', $controller_path. '\pages\Backups@export')->name('pages-backups-export');
+    Route::get('/backups/destroy/{backup_id}', $controller_path. '\pages\Backups@destroy')->name('pages-backups-destroy');
 
 });

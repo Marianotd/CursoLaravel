@@ -27,7 +27,7 @@ $configData = Helper::appClasses();
                         <td>{{ $backup->id }}</td>
                         <td>{{ $backup->status }}</td>
                         <td>{{ $backup->created_at }}</td>
-                        <td><a href="{{ route('pages-backups-show', $backup->id) }}">Editar</a> | <a href="{{ route('pages-backups-destroy', $backup->id) }}">Borrar</a></td>
+                        <td><a href="{{ $backup->url }}">Descargar</a> | <a href="{{ route('pages-backups-destroy', $backup->id) }}">Borrar</a></td>
                     </tr>
                 @endforeach
             </tbody>
