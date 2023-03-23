@@ -4,7 +4,7 @@ namespace App\Http\Controllers\pages;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\{Device, So, Type, Backup};
+use App\Models\{Device, So, Type, Backup, Report};
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
@@ -32,6 +32,7 @@ class HomePage extends Controller
     $n_devices = Device::where('active', true)->count();
     $n_types = Type::where('active', true)->count();
     $n_backups = Backup::where('status', 'Done')->count();
-    return view('content.pages.pages-home', ['n_sos' => $n_sos, 'n_devices' => $n_devices, 'n_types' => $n_types, 'n_backups' => $n_backups]);
+    $n_reports = Report::get()->count();
+    return view('content.pages.pages-home', ['n_sos' => $n_sos, 'n_devices' => $n_devices, 'n_types' => $n_types, 'n_backups' => $n_backups, 'n_reports' => $n_reports]);
   }
 }

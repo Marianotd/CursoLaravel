@@ -71,4 +71,11 @@ $controller_path = 'App\Http\Controllers';
     Route::get('/backups/create', $controller_path . '\pages\Backups@create')->name('pages-backups-create');
     Route::get('/backups/destroy/{backup_id}', $controller_path. '\pages\Backups@destroy')->name('pages-backups-destroy');
 
+    // Switch de Roles
+    Route::get('/roles/switch/{user_id}', $controller_path. '\pages\Users@switch')->name('pages-roles-switch');
+
+    // Reports
+    Route::get('reports', $controller_path. '\pages\Reports@index')->name('pages-reports');
+    Route::get('/reports/create', $controller_path . '\pages\Reports@create')->name('pages-reports-create');
+    Route::get('/reports/destroy/{report_id}', $controller_path. '\pages\Reports@destroy')->name('pages-reports-destroy');    
 });
